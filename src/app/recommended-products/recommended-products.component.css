@@ -1,0 +1,9 @@
+.productCard{
+    background-color: #1ABC9C;
+}
+
+.displayProducts img{
+    height: 15.625rem;
+    object-fit: cover;
+    cursor: pointer;
+}

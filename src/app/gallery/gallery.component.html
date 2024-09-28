@@ -1,0 +1,56 @@
+<main>
+    <div class="gallery-page text-center">
+        <div class="container">
+            <h2 class="display-6 fw-bold text-uppercase pt-3">gallery component</h2>
+
+            <div class="starLine d-flex justify-content-center align-items-center my-3">
+                <div class="line"></div>
+                <i class="fa-solid fa-star mx-3"></i>
+                <div class="line"></div>
+            </div>
+
+            <div class="displayProducts">
+                <div class="row">
+                    @for (product of productArr; track $index) {
+                    <div class="col-md-3 p-3">
+                        <div class="productCard rounded-2 p-2">
+                            <span>{{$index +1}}</span>
+                            <img [src]="product.pImg" class="w-100 rounded-2" alt="product-img" data-bs-toggle="modal"
+                                [attr.data-bs-target]="'#exampleModal' + $index">
+                            <h6>Product Name: {{product.pName}}</h6>
+                            <h6>Product Prices: {{product.pPrices}}</h6>
+                            <h6>Product cat: {{product.pCat}}</h6>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" [id]="'exampleModal' + $index" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <img [src]="product.pImg" class="w-100 h-100" alt="product-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="recommended-products d-flex justify-content-center align-items-center rounded-2" #recommended>
+                <h2 class="display-6 fw-bold text-uppercase pt-3 text-white">recommended component</h2>
+            </div>
+
+            @defer (on hover(recommended)) {
+                <app-recommended-products></app-recommended-products>
+            }
+            @placeholder {
+                <h2 class="mb-5 text-capitalize">hover to display recommended products <i class="fa-solid fa-hand-pointer"></i></h2>
+            }
+            @loading (minimum 2000ms){
+                <h2 class="mb-5 text-capitalize">loading.....</h2>
+            }
+            @error {
+                <h2 class="mb-5 text-capitalize">error!</h2>
+            }
+        </div>
+    </div>
+</main>

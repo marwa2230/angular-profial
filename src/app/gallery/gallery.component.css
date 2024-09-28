@@ -1,0 +1,24 @@
+.gallery-page{
+    color: #2C3E50;
+}
+
+.line{
+    width: 6.25rem;
+    height: .25rem;
+    background-color: #2C3E50;
+}
+
+.displayProducts img{
+    height: 15.625rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.productCard{
+    background-color: #1ABC9C;
+}
+
+.recommended-products{
+    background-color: #2C3E50;
+    cursor: pointer;
+}

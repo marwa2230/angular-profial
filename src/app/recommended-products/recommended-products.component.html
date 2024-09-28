@@ -1,0 +1,25 @@
+<div class="displayProducts my-5">
+    <div class="row">
+        @for (product of productArr; track $index) {
+        <div class="col-md-3 p-3">
+            <div class="productCard rounded-2 p-2">
+                <span>{{$index +1}}</span>
+                <img [src]="product.pImg" class="w-100 rounded-2" alt="product-img" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#exampleModal' + $index">
+                <h6>Product Name: {{product.pName}}</h6>
+                <h6>Product Prices: {{product.pPrices}}</h6>
+                <h6>Product cat: {{product.pCat}}</h6>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" [id]="'exampleModal' + $index" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <img [src]="product.pImg" class="w-100 h-100" alt="product-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
